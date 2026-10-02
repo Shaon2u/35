@@ -1,0 +1,10 @@
+
+# Local exploration leftovers (do not commit credentials or one-off captures)
+*_script.py
+explore_*.py
+login_script*.py
+/auto_*.png
+/selenium_*.png
+/explore_*.png
+/detail_*.png
+/screenshot_*.webp
