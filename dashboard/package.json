@@ -1,0 +1,13 @@
+{
+  "name": "alphaxbot-dashboard-hardening",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Performance + Permissions-Policy hardening for alphaxbot-user-dashboard",
+  "scripts": {
+    "start": "node server-demo.js",
+    "demo": "node server-demo.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

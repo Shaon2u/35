@@ -1,3 +1,4 @@
 site/node_modules
 site/.next
 site/.vercel
+dashboard/node_modules
