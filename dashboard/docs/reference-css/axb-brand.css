@@ -1,0 +1,140 @@
+/* ==========================================================================
+   AlphaXBot brand — master tokens
+   The single source for colour, typography, radius and shadow tokens.
+   Imported at the top of axb-theme.css, so every app, auth and proxied page
+   gets the same values. Change brand values here only.
+   ========================================================================== */
+
+:root {
+    /* ---------- Colour ---------- */
+    --axb-accent: #4FDBCC;
+    --axb-accent-600: #2FC3B3;
+    --axb-accent-700: #1FA193;
+    --axb-accent-soft: rgba(79, 219, 204, .14);
+    --axb-accent-ring: rgba(79, 219, 204, .35);
+
+    --axb-navy: #09163C;
+    --axb-navy-900: #060F2B;
+    --axb-navy-800: #0E1D4A;
+    --axb-navy-700: #15285C;
+    --axb-navy-soft: rgba(9, 22, 60, .06);
+
+    --axb-bg: #F4F6FA;
+    --axb-surface: #FFFFFF;
+    --axb-surface-2: #F8FAFC;
+    --axb-border: #E5E9F2;
+    --axb-border-strong: #D3DAE6;
+
+    /* Text on light surfaces: primary, secondary, muted */
+    --axb-text: #0B1533;
+    --axb-text-2: #4F5B78;
+    --axb-text-3: #8690A8;
+    /* Text on navy surfaces: primary, secondary, muted */
+    --axb-on-dark: #FFFFFF;
+    --axb-on-dark-2: rgba(255, 255, 255, .72);
+    --axb-on-dark-3: rgba(255, 255, 255, .55);
+
+    /* ---------- Status ----------
+       base:   icons, dots, fills, progress bars
+       text:   words on white or on the soft tint (WCAG AA, 4.5:1 or better)
+       soft:   tinted backgrounds for notices, pills and badges
+       border: outline of a notice on its soft background
+       Info and tips use the brand teal, so helpful hints feel on-brand and never read as an alert. */
+    --axb-success: #12A574;
+    --axb-success-text: #0B7A56;
+    --axb-success-soft: rgba(18, 165, 116, .1);
+    --axb-success-border: rgba(18, 165, 116, .28);
+
+    --axb-danger: #E5484D;
+    --axb-danger-text: #C62F35;
+    --axb-danger-soft: rgba(229, 72, 77, .1);
+    --axb-danger-border: rgba(229, 72, 77, .3);
+
+    --axb-warning: #E38B0B;
+    --axb-warning-text: #A65F04;
+    --axb-warning-soft: rgba(227, 139, 11, .12);
+    --axb-warning-border: rgba(227, 139, 11, .32);
+
+    --axb-info: #1FA193;
+    --axb-info-text: #127A70;
+    --axb-info-soft: rgba(79, 219, 204, .14);
+    --axb-info-border: rgba(31, 161, 147, .3);
+
+    --axb-tip: var(--axb-info);
+    --axb-tip-text: var(--axb-info-text);
+    --axb-tip-soft: var(--axb-info-soft);
+    --axb-tip-border: var(--axb-info-border);
+
+    /* Rank rewards only: a warm gold so achievements stand apart from warnings */
+    --axb-gold: #D69E2E;
+    --axb-gold-text: #8A5A12;
+    --axb-gold-soft: rgba(214, 158, 46, .14);
+    --axb-gold-gradient: linear-gradient(135deg, #F6C453 0%, #D69E2E 100%);
+
+    /* ---------- Typography ---------- */
+    --axb-font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    /* Only for wallet addresses, transaction hashes and referral codes */
+    --axb-font-mono: ui-monospace, 'JetBrains Mono', SFMono-Regular, Menlo, Consolas, monospace;
+
+    --axb-fs-micro: 11px;  /* eyebrows, uppercase labels, chips */
+    --axb-fs-xs: 12px;     /* meta, captions, axis labels */
+    --axb-fs-sm: 13px;     /* secondary text, table cells, small buttons */
+    --axb-fs-base: 14px;   /* body text, buttons, inputs */
+    --axb-fs-md: 16px;     /* emphasised rows, card sub-values */
+    --axb-fs-lg: 18px;     /* card titles, list values */
+    --axb-fs-xl: 22px;     /* KPI values */
+    --axb-fs-2xl: 28px;    /* section hero numbers */
+    --axb-fs-3xl: 34px;    /* hero titles */
+    --axb-fs-4xl: 44px;    /* hero balances */
+
+    --axb-fw-regular: 400;
+    --axb-fw-medium: 500;
+    --axb-fw-semibold: 600;
+    --axb-fw-bold: 700;
+
+    --axb-lh-tight: 1.15;
+    --axb-lh-snug: 1.35;
+    --axb-lh-normal: 1.5;
+
+    --axb-ls-tight: -.02em;
+    --axb-ls-caps: .08em;
+
+    /* ---------- Shape & motion ---------- */
+    --axb-radius-sm: 8px;
+    --axb-radius: 12px;
+    --axb-radius-lg: 16px;
+
+    --axb-shadow-xs: 0 1px 2px rgba(9, 22, 60, .04);
+    --axb-shadow-sm: 0 1px 2px rgba(9, 22, 60, .04), 0 2px 8px rgba(9, 22, 60, .04);
+    --axb-shadow-md: 0 8px 24px rgba(9, 22, 60, .08);
+    --axb-shadow-lg: 0 20px 48px rgba(9, 22, 60, .16);
+
+    --axb-ease: cubic-bezier(.2, .7, .2, 1);
+}
+
+/* ---------- Base typography ---------------------------------------------- */
+
+:where(body.axb-app, body.axb-auth) {
+    --bs-body-font-family: var(--axb-font);
+    --bs-heading-font-family: var(--axb-font);
+    --bs-body-font-size: var(--axb-fs-base);
+    font-family: var(--axb-font);
+    font-size: var(--axb-fs-base);
+    line-height: var(--axb-lh-normal);
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1, "cv11" 1;
+}
+
+/* Zero specificity: beats the vendor `* { font-family }` rule by load order, while icon-font classes still win. */
+:where(body.axb-app, body.axb-auth) * { font-family: inherit; }
+
+:where(body.axb-app, body.axb-auth) :is(h1, h2, h3, h4, h5, h6) { font-family: var(--axb-font); }
+/* Element specificity to beat normalize.css `button, input { font-family: sans-serif }`. */
+:where(body.axb-app, body.axb-auth) :is(button, input, select, textarea, optgroup) { font-family: inherit; }
+:where(body.axb-app, body.axb-auth) :is(code, kbd, samp, pre) { font-family: var(--axb-font-mono); }
+
+/* ---------- Utilities ---------------------------------------------------- */
+
+.axb-mono { font-family: var(--axb-font-mono); letter-spacing: -.01em; }
+.axb-num { font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
+.axb-eyebrow { font-size: var(--axb-fs-micro); font-weight: var(--axb-fw-semibold); letter-spacing: var(--axb-ls-caps); text-transform: uppercase; }

@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy: #081428;
+  --accent: #6942e2;
+  --mint: #28e7c5;
+  --soft: #fbfaff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: #fff;
+  background: var(--navy);
+  font-family: var(--font-syne), Syne, sans-serif;
+}
+
+.join {
+  background: linear-gradient(90deg, #081428, #6942e2);
+  background-color: #081428;
+}
+
+.box1 {
+  background: #28e7c580;
+  filter: blur(150px);
+}
+
+.box2 {
+  background: #6942e280;
+  filter: blur(150px);
+}
+
+.buy-glow {
+  filter: blur(80px);
+}
+
+.rd1 {
+  background: linear-gradient(90deg, #081428, #6942e2);
+}
+
+.rd2 {
+  background: linear-gradient(90deg, #04473b, #28e7c5);
+}
+
+.rd3 {
+  background: linear-gradient(90deg, #371c8a, #1bab91);
+}
+
+.rd4 {
+  background: linear-gradient(90deg, #6a41e1, #dc00bc);
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes soft-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s ease-out both;
+}
+
+.animate-fade-up-delay {
+  animation: fade-up 0.7s ease-out 0.15s both;
+}
+
+.animate-glow {
+  animation: soft-pulse 4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-fade-up,
+  .animate-fade-up-delay,
+  .animate-glow {
+    animation: none;
+  }
+}

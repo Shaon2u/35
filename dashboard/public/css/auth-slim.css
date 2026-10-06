@@ -1,0 +1,354 @@
+/* AlphaXBot slim auth — no Metronic plugins.bundle / style.bundle.
+   Replaces ~4.5MB of login-page CSS/JS with a ~25KB critical path. */
+
+:root {
+  --axb-accent: #4fdbcc;
+  --axb-accent-600: #2fc3b3;
+  --axb-accent-700: #1fa193;
+  --axb-accent-soft: rgba(79, 219, 204, 0.14);
+  --axb-accent-ring: rgba(79, 219, 204, 0.35);
+  --axb-navy: #09163c;
+  --axb-navy-900: #060f2b;
+  --axb-navy-800: #0e1d4a;
+  --axb-bg: #f4f6fa;
+  --axb-surface: #ffffff;
+  --axb-border: #e5e9f2;
+  --axb-text: #0b1533;
+  --axb-text-2: #4f5b78;
+  --axb-text-3: #8690a8;
+  --axb-on-dark: #ffffff;
+  --axb-on-dark-2: rgba(255, 255, 255, 0.72);
+  --axb-radius: 12px;
+  --axb-radius-lg: 16px;
+  --axb-shadow: 0 18px 40px -24px rgba(9, 22, 60, 0.45);
+  --axb-font: "Segoe UI", system-ui, -apple-system, sans-serif;
+  --axb-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body.axb-auth {
+  font-family: var(--axb-font);
+  background: var(--axb-bg);
+  color: var(--axb-text-2);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--axb-accent-700);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.ax-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.ax-brand {
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  height: 100vh;
+  min-height: 640px;
+  overflow: hidden;
+  flex: 0 0 46%;
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  padding: 44px 52px;
+  color: var(--axb-on-dark);
+  background:
+    radial-gradient(120% 80% at 0% 0%, rgba(79, 219, 204, 0.22) 0%, transparent 55%),
+    radial-gradient(90% 70% at 100% 100%, rgba(79, 219, 204, 0.14) 0%, transparent 60%),
+    linear-gradient(160deg, #0e1d4a 0%, var(--axb-navy) 55%, var(--axb-navy-900) 100%);
+}
+
+.ax-brand::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse at 30% 40%, #000 20%, transparent 75%);
+}
+
+.ax-brand-logo {
+  position: relative;
+  z-index: 1;
+  height: 36px;
+  width: auto;
+}
+
+.ax-brand-copy {
+  position: relative;
+  z-index: 1;
+  margin-top: auto;
+  margin-bottom: auto;
+  max-width: 420px;
+}
+
+.ax-brand-copy h2 {
+  margin: 0 0 14px;
+  font-size: 34px;
+  line-height: 1.2;
+  color: var(--axb-on-dark);
+  letter-spacing: -0.02em;
+}
+
+.ax-brand-copy h2 span {
+  color: var(--axb-accent);
+}
+
+.ax-brand-copy p {
+  margin: 0 0 22px;
+  color: var(--axb-on-dark-2);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.ax-hero-pills {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.ax-hero-pills li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--axb-on-dark);
+  font-size: 14px;
+}
+
+.ax-hero-pills li svg {
+  width: 16px;
+  height: 16px;
+  color: var(--axb-accent);
+  flex-shrink: 0;
+}
+
+.ax-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.ax-main-top {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px 28px 0;
+}
+
+.ax-main-center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.ax-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--axb-surface);
+  border: 1px solid var(--axb-border);
+  border-radius: var(--axb-radius-lg);
+  box-shadow: var(--axb-shadow);
+  padding: 32px 28px;
+}
+
+.si-head {
+  margin-bottom: 22px;
+}
+
+.si-eb {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--axb-accent-soft);
+  color: var(--axb-accent-700);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.si-head h1 {
+  margin: 14px 0 6px;
+  font-size: 28px;
+  color: var(--axb-text);
+  letter-spacing: -0.02em;
+}
+
+.si-head p {
+  margin: 0;
+  color: var(--axb-text-3);
+  font-size: 14px;
+}
+
+.si-field {
+  margin-bottom: 16px;
+}
+
+.si-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.si-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--axb-text);
+}
+
+.si-forgot {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.si-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.si-input input {
+  width: 100%;
+  height: 48px;
+  border: 1px solid var(--axb-border);
+  border-radius: var(--axb-radius);
+  padding: 0 44px;
+  font: inherit;
+  color: var(--axb-text);
+  background: #fff;
+  outline: none;
+  transition: border-color 0.15s var(--axb-ease), box-shadow 0.15s var(--axb-ease);
+}
+
+.si-input input:focus {
+  border-color: var(--axb-accent-600);
+  box-shadow: 0 0 0 3px var(--axb-accent-soft);
+}
+
+.si-ico {
+  position: absolute;
+  left: 14px;
+  width: 16px;
+  height: 16px;
+  color: var(--axb-text-3);
+  pointer-events: none;
+}
+
+.eyeabsolute {
+  position: absolute;
+  right: 12px;
+  cursor: pointer;
+  color: var(--axb-text-3);
+  display: inline-flex;
+  padding: 6px;
+}
+
+.si-submit {
+  margin-top: 8px;
+}
+
+.btn-clr {
+  width: 100%;
+  height: 48px;
+  border: 0;
+  border-radius: var(--axb-radius);
+  background: linear-gradient(135deg, var(--axb-accent) 0%, var(--axb-accent-600) 100%);
+  color: var(--axb-navy);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: transform 0.15s var(--axb-ease), box-shadow 0.15s var(--axb-ease);
+  box-shadow: 0 10px 20px -12px var(--axb-accent-ring);
+}
+
+.btn-clr:hover {
+  transform: translateY(-1px);
+}
+
+.btn-clr:disabled {
+  opacity: 0.7;
+  cursor: wait;
+  transform: none;
+}
+
+.si-secure {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--axb-text-3);
+}
+
+.ax-mhero {
+  display: none;
+}
+
+.ax-footer {
+  padding: 16px 24px 24px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--axb-text-3);
+}
+
+.ax-footer a {
+  color: var(--axb-text-2);
+  margin: 0 8px;
+}
+
+@media (max-width: 960px) {
+  .ax-shell {
+    flex-direction: column;
+  }
+  .ax-brand {
+    display: none;
+  }
+  .ax-mhero {
+    display: block;
+    padding: 28px 24px 0;
+  }
+  .ax-mhero-title {
+    margin: 12px 0 0;
+    color: var(--axb-text);
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .ax-mhero-title span {
+    color: var(--axb-accent-700);
+  }
+}
